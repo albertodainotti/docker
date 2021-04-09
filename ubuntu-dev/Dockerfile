@@ -1,10 +1,10 @@
 ARG name
 FROM $name
 
-ARG distro
-ARG distro-release
 ENV DEBIAN_FRONTEND=noninteractive
 
+ARG distro-release
+ARG distro
 RUN apt-get update && \
   apt-get -y install curl lsb-release sudo && \
   curl https://pkg.caida.org/os/${distro}/bootstrap.sh | bash
