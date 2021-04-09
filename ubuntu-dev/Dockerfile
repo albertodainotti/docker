@@ -3,14 +3,13 @@ FROM $name
 
 ARG distro
 ARG distro-release
-ARG user
-ARG myflavor
 ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update && \
   apt-get -y install curl lsb-release sudo && \
   curl https://pkg.caida.org/os/${distro}/bootstrap.sh | bash
 
+ARG myflavor
 RUN if [ "${myflavor}" = "devel" ]; then apt-get -y update && apt-get install -y \
   apt-utils \
   build-essential \
@@ -22,6 +21,7 @@ RUN if [ "${myflavor}" = "devel" ]; then apt-get -y update && apt-get install -y
   devscripts \
   ; fi
 
+ARG user
 RUN useradd -m ${user} && echo "${user}:${user}" | chpasswd && adduser ${user} sudo
 RUN sed -i.bkp -e \
       's/%sudo\s\+ALL=(ALL\(:ALL\)\?)\s\+ALL/%sudo ALL=NOPASSWD:ALL/g' \

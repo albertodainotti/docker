@@ -21,6 +21,6 @@ fi
 
 
 NAME=${DISTRO}:${RELEASE}
-echo "Creating image for NAME=${DISTRO}:${RELEASE} with tag ${DISTRO}-my${MYFLAVOR}-${RELEASE}"
+echo "Creating image for ${DISTRO}:${RELEASE} with tag ${DISTRO}-my${MYFLAVOR}-${RELEASE}"
 
 docker build -t "${DISTRO}-my${MYFLAVOR}-${RELEASE}" --build-arg name=${NAME} --build-arg distro=${DISTRO} --build-arg distro-release=${RELEASE} --build-arg user=${USER}  --build-arg myflavor=${MYFLAVOR} ./
