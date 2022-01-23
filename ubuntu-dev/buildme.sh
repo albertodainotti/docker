@@ -4,10 +4,11 @@ set -e
 # Defaults for command line arguments
 DISTRO="ubuntu"		# ubuntu, debian
 RELEASE="latest" 	# latest, buster-slim, ...
-MYFLAVOR="slim"		# slim vs devel
+MYFLAVOR="devel"	# slim vs devel
 
 # Other defaults
-USER="alberto"
+USER="inetintel-ioda"
+GROUP="coc-inetintel-ioda"
 
 if [[ $# > 0 ]]; then
 	DISTRO="$1"
@@ -23,4 +24,4 @@ fi
 NAME=${DISTRO}:${RELEASE}
 echo "Creating image for ${DISTRO}:${RELEASE} with tag ${DISTRO}-my${MYFLAVOR}-${RELEASE}"
 
-docker build -t "${DISTRO}-my${MYFLAVOR}-${RELEASE}" --build-arg name=${NAME} --build-arg distro=${DISTRO} --build-arg distro-release=${RELEASE} --build-arg user=${USER}  --build-arg myflavor=${MYFLAVOR} ./
+docker build -t "${DISTRO}-my${MYFLAVOR}-${RELEASE}" --build-arg name=${NAME} --build-arg distro=${DISTRO} --build-arg distro-release=${RELEASE} --build-arg user=${USER} --build-arg group=${GROUP} --build-arg myflavor=${MYFLAVOR} ./
