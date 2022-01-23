@@ -23,8 +23,9 @@ RUN if [ "${myflavor}" = "devel" ]; then apt-get -y update && apt-get install -y
   wget \
   ; fi
 
-RUN groupadd -g 371490 coc-inetintel-ioda
-RUN useradd -m -u 3148846 -g 371490 ${user} && echo "${user}:${user}" | chpasswd && adduser ${user} sudo
+RUN useradd -m ${user} && echo "${user}:${user}" | chpasswd && adduser ${user} sudo
+#RUN groupadd -g 371490 coc-inetintel-ioda
+#RUN useradd -m -u 3148846 -g 371490 ${user} && echo "${user}:${user}" | chpasswd && adduser ${user} sudo
 RUN sed -i.bkp -e \
       's/%sudo\s\+ALL=(ALL\(:ALL\)\?)\s\+ALL/%sudo ALL=NOPASSWD:ALL/g' \
       /etc/sudoers
