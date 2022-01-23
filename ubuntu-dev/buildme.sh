@@ -3,12 +3,14 @@ set -e
 
 # Defaults for command line arguments
 DISTRO="ubuntu"		# ubuntu, debian
-RELEASE="latest" 	# latest, buster-slim, ...
+RELEASE="latest" 	# latest, bionic, buster-slim, ...
 MYFLAVOR="devel"	# slim vs devel
 
 # Other defaults
-USER="inetintel-ioda"
-GROUP="coc-inetintel-ioda"
+#USER="inetintel-ioda"
+#GROUP="coc-inetintel-ioda"
+USER="alberto"
+GROUP="alberto"
 
 if [[ $# > 0 ]]; then
 	DISTRO="$1"
