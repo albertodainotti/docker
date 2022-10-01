@@ -12,8 +12,9 @@ To build the image:
 ```
 cd ubuntu-dev
 ./buildme.sh {distro} {release} {devel|slim}
-By default it builds "ubuntu latest devel" and will call the docker image `ubuntu-mydevel-jammy` (assuming "jammy" is the latest ubuntu)
 ```
+By default it builds "ubuntu latest devel" and will call the docker image `ubuntu-mydevel-jammy` (assuming "jammy" is the latest ubuntu)
+
 
 The build script has some extra features:
 - It will add a user/group that will be used as default user for the container and add to such user's home the .bashrc .bash_profile and .gitconfig that are in the ubuntu-dev folder
