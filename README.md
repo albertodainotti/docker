@@ -27,3 +27,7 @@ The bash alias from Alistair:
 ```
 alias dh='docker run -it --rm -v $(pwd):/work/$(basename $(pwd)) -w /work/$(basename $(pwd)) ubuntu-dev /bin/bash'
 ```
+The one above uses `--rm` to automatically remove the container when it exits. If you're aiming at a more persistent use of the container:  
+```
+alias dh='docker run -it -v $(pwd):/work/$(basename $(pwd)) -w /work/$(basename $(pwd)) ubuntu-dev /bin/bash'
+```
